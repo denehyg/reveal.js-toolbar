@@ -82,7 +82,7 @@ var RevealToolbar = window.RevealToolbar || (function(){
 				dom.helpButton = createToolbarButton('fa-question', Reveal.toggleHelp);
 			}			
 
-			if (showNotes) {
+			if (showNotes && !Reveal.isSpeakerNotes()) {
 				createToolbarButton('fa-list-alt', function() { if (RevealNotes) { RevealNotes.open() } });
 			}
 
