@@ -85,16 +85,20 @@ Reveal.initialize({
 		// Add button to pause (hide) the presentation display
 		pause: false,
 
+		// Add button to show the speaker notes
+		notes: false,
+
 		// Add button to show the help overlay
 		help: false,
 
-		// If true, the menu will be moved into the toolbar.
-		// This requires the reveal.js-menu plugin.
-		captureMenu: false,
+		// If true, the reveal.js-menu will be moved into the toolbar.
+		// Set to false to leave the menu on its own.
+		captureMenu: true,
 
 		// If true, the playback control will be moved into the toolbar.
-		// This is only relevant if the presentation is configured to autoSlide
-		capturePlaybackControl: false,
+		// This is only relevant if the presentation is configured to autoSlide.
+		// Set to false to leave the menu on its own.
+		capturePlaybackControl: true,
 
 		// By default the menu will load it's own font-awesome library
 		// icons. If your presentation needs to load a different

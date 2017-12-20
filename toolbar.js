@@ -36,28 +36,22 @@ var RevealToolbar = window.RevealToolbar || (function(){
 	function loadPlugin() {
 		// does not support IE8 or below
 		if (!head.browser.ie || head.browser.version >= 9) {
+			function option(opt, def) {
+				if (typeof opt === "undefined") return def;
+				return opt;
+			}
+
 			//
 			// Set option defaults
 			//
-			var position = options.position || 'bottom';	// 'top' or 'bottom'
-
-			var showFullscreen = options.fullscreen;
-			if (typeof showFullscreen === "undefined") showFullscreen = false;
-
-			var showOverview = options.overview;
-			if (typeof showOverview === "undefined") showOverview = false;
-
-			var showPause = options.pause;
-			if (typeof showPause === "undefined") showPause = false;
-
-			var showHelp = options.help;
-			if (typeof showHelp === "undefined") showHelp = false;
-
-			var captureMenu = options.captureMenu;
-			if (typeof captureMenu === "undefined") captureMenu = false;
-
-			var capturePlaybackControl = options.capturePlaybackControl;
-			if (typeof capturePlaybackControl === "undefined") capturePlaybackControl = false;
+			var position = option(options.position, 'bottom');	// 'top' or 'bottom'
+			var showFullscreen = option(options.fullscreen, false);
+			var showOverview = option(options.overview, false);
+			var showPause = option(options.pause, false);
+			var showNotes = option(options.notes, false);
+			var showHelp = option(options.help, false);
+			var captureMenu = option(options.captureMenu, true);
+			var capturePlaybackControl = option(options.capturePlaybackControl, true);
 
 			// Cache references to key DOM elements
 			dom.reveal = document.querySelector( '.reveal' );
@@ -80,6 +74,18 @@ var RevealToolbar = window.RevealToolbar || (function(){
 				return button;
 			}
 
+			if (showOverview) {
+				dom.overviewButton = createToolbarButton('fa-th-large', Reveal.toggleOverview);
+			}
+			
+			if (showHelp) {
+				dom.helpButton = createToolbarButton('fa-question', Reveal.toggleHelp);
+			}			
+
+			if (showNotes) {
+				createToolbarButton('fa-list-alt', function() { if (RevealNotes) { RevealNotes.open() } });
+			}
+
 			if (showFullscreen) {
 				dom.fullscreenButton = createToolbarButton('fa-expand', function() { 
 					if (screenfull.enabled) {
@@ -97,14 +103,6 @@ var RevealToolbar = window.RevealToolbar || (function(){
 				});
 			}
 
-			if (showOverview) {
-				dom.overviewButton = createToolbarButton('fa-th-large', Reveal.toggleOverview);
-			}
-			
-			if (showHelp) {
-				dom.helpButton = createToolbarButton('fa-question', Reveal.toggleHelp);
-			}			
-
 			if (showPause) {
 				dom.pauseButton = createToolbarButton('fa-eye-slash', Reveal.togglePause);
 				dom.pauseButton.classList.add('reveal-toolbar-pause-button');
@@ -119,14 +117,6 @@ var RevealToolbar = window.RevealToolbar || (function(){
 					icon.classList.add('fa-eye-slash');
 				});
 			}
-						
-/*
- * not ready yet...
- * 
-			// open notes window
-			createToolbarButton('fa-file-text-o', function() { Reveal.triggerKey(83) }); //XXX this doesn't work as key handling in done in the note plugin
- *
- */
 
 			if (captureMenu) {
 				// handle async loading of plugins
