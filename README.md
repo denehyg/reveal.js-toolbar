@@ -121,4 +121,4 @@ Reveal.addEventListener( 'toolbar-ready', function( event ) {
 
 MIT licensed
 
-Copyright (C) 2015 Greg Denehy
+Copyright (C) 2017 Greg Denehy
