@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js-menu</title>
+
+		<meta name="description" content="A slideout menu for reveal.sj, a framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Greg Denehy">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="lib/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="lib/reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/reveal.js/css/print/pdf.css' : 'lib/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.reveal .slide-number {
+				font-size: 0.6em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section id="home">
+					<h1>Reveal.js-toolbar</h1>
+					<h3>A toolbar plugin for reveal.js presentations</h3>
+					<p>
+						<small>Created by <a href="https://github.com/denehyg">Greg Denehy</a> / <a href="http://twitter.com/gregdenehy">@gregdenehy</a></small>
+					</p>
+				</section>
+
+				<section id="introduction" data-menu-title="Introduction">
+					<h3>Hey There</h3>
+					<p>The <a href="https://github.com/denehyg/reveal.js-toolbar">reveal.js-toolbar</a> plugin gives you quick access <br/>to Reveal.js functionality via toolbar buttons</p>
+					<p>You can see it in the bottom left of this presentation</p>
+				</section>
+
+				<section data-menu-title="Buttons">
+					<p>
+						The toolbar provides the these buttons...
+					</p>
+					<ul class="fa-ul" style="list-style-type: none;">
+						<li><span class="fa-li"><i class="fa fa-expand"></i></span>Fullscreen</li>
+						<li><span class="fa-li"><i class="fa fa-list-alt"></i></span>Speaker notes</li>
+						<li><span class="fa-li"><i class="fa fa-eye-slash"></i></span>Pause</li>
+						<li><span class="fa-li"><i class="fa fa-th-large"></i></span>Overview</li>
+						<li><span class="fa-li"><i class="fa fa-question"></i></span>Help</li>
+					</ul>
+				</section>
+
+				<section data-menu-title="Button config">
+						<p>Every button is enabled in the configuration, <br/>so you only see what you want</p>
+						<br/>
+						<p>
+							<pre><code data-trim>
+								Reveal.initialize({
+									toolbar: {
+										fullscreen: true,
+										notes: true,
+										pause: true,
+										overview: false,
+										help: false
+									}
+								});
+							</code></pre>
+						</p>
+				</section>
+		
+				<section data-menu-title="Custom Menu Title">
+					<p>You can also move the following into the toolbar<br/>(to keep everything together)...</p>
+					<p>
+						<ul class="fa-ul" style="list-style-type: none;">
+							<li><span class="fa-li"><i class="fa fa-bars"></i></span>Menu (<a href="https://github.com/denehyg/reveal.js-menu">reveal.js-menu</a> plugin)</li>
+							<li><span class="fa-li"><i class="fa fa-play"></i></span>Auto slide playback control</li>
+						</ul>
+					</p>
+					<br/>
+					<p>
+						<pre><code data-trim>
+							Reveal.initialize({
+								toolbar: {
+									captureMenu: true,
+									capturePlaybackControl: true
+								}
+							});
+						</code></pre>
+					</p>
+				</section>
+
+				<section data-menu-title="Position">
+					<p>Want to place the toolbar at <br/>the top of the presentation?</p>
+					<br/>
+					<p>
+						<pre><code data-trim>
+							Reveal.initialize({
+								toolbar: {
+									position: 'top'
+								}
+							});
+						</code></pre>
+					</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p><a href="https://github.com/denehyg/reveal.js-toolbar/archive/master.zip">Download reveal.js-toolbar</a> and add it to your plugin folder</p>
+					<p>Have a look at the <a href="https://github.com/denehyg/reveal.js-toolbar">source code &amp; documentation</a></p>
+					<p>And don't forget to check out <a href="https://github.com/hakimel/reveal.js">Reveal.js</a> if you haven't already</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/reveal.js/lib/js/head.min.js"></script>
+		<script src="lib/reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: false,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				menu: {
+					markers: true,
+					numbers: true,
+					themes: false,
+					transitions: false,
+				},
+
+				toolbar: {
+					fullscreen: true,
+					pause: true,
+					notes: true,
+				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'plugin/menu/menu.js', async: true },
+					{ src: 'plugin/toolbar/toolbar.js', async: true }
+				]
+			});
+		</script>
+
+		<a class="fork-reveal" href="https://github.com/denehyg/reveal.js-toolbar"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork reveal.js-toolbar on GitHub"></a>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-111480780-1', 'auto');
+			ga('send', 'pageview');
+
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				var loc = (event.indexv > 0 ? event.indexh+'' : event.indexh+'.'+event.indexv);
+				ga('send', 'event', 'slide', 'changed', loc);
+			} );
+		</script>
+
+	</body>
+</html>
