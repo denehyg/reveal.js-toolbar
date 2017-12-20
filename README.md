@@ -1,6 +1,6 @@
 # reveal.js-toolbar
 
-A toolbar plugin for [Reveal.js](https://github.com/hakimel/reveal.js) to quickly access Reveal functionality.
+A toolbar plugin for [Reveal.js](https://github.com/hakimel/reveal.js) to quickly access Reveal functionality. [Check out the live demo](https://denehyg.github.io/reveal.js-toolbar)
 
 This plugin is compatible with the [reveal.js-menu](https://github.com/denehyg/reveal.js-menu) plugin.
 
