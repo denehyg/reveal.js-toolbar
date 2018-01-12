@@ -69,7 +69,10 @@ var RevealToolbar = window.RevealToolbar || (function(){
 			function createToolbarButton(icon, cb) {
 				var button = createNode(dom.toolbar, 'a', 'reveal-toolbar-button', null);
 				button.setAttribute('href', '#');
-				button.onclick = cb;
+				button.onclick = function(event) {
+					event.preventDefault();
+					cb(event);
+				}
 				createNode(button, 'i', ['fa', icon]);
 				return button;
 			}
