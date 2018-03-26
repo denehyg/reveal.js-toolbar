@@ -99,7 +99,7 @@ var RevealToolbar = window.RevealToolbar || (function(){
 
 			// set fullscreen button icon to match fullscreen state
 			if (screenfull.enabled) {
-				screenfull.on('change', () => {
+				screenfull.on('change', function() {
 					var icon = dom.fullscreenButton.querySelector('i');
 					icon.classList.remove(screenfull.isFullscreen ? 'fa-expand' : 'fa-compress');
 					icon.classList.add(screenfull.isFullscreen ? 'fa-compress' : 'fa-expand');
@@ -229,7 +229,7 @@ var RevealToolbar = window.RevealToolbar || (function(){
 		} else {
 			var sel = document.querySelector('script[src$="/toolbar.js"]')
 			if (sel) {
-				path = sel.src.slice(0, -7);
+				path = sel.src.slice(0, -10);
 			}
 		}
 		return path;
@@ -249,7 +249,9 @@ var RevealToolbar = window.RevealToolbar || (function(){
 		var node = document.createElement( tagname );
 		if (classname) {
 			if (Array.isArray(classname)) {
-				node.classList.add( ...classname );
+				classname.forEach(function(c) {
+					node.classList.add(c);
+				})
 			} else {
 				node.classList.add( classname );		
 			}
