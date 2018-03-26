@@ -59,7 +59,7 @@ Reveal.initialize({
 	dependencies: [
 		// ... 
 	  
-		{ src: 'plugin/toolbar/toolbar.js' }
+		{ src: 'plugins/toolbar/toolbar.js' }
 	]
 });
 ```
