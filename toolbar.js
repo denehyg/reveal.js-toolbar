@@ -16,7 +16,10 @@
 var RevealToolbar = window.RevealToolbar || (function(){
 	var config = Reveal.getConfig();
 	var options = config.toolbar || {};
-	options.path = options.path || scriptPath() || 'plugin/toolbar';
+	options.path = options.path || scriptPath() || 'plugin/toolbar/';
+	if (!options.path.endsWith('/')) {
+		options.path += '/';
+	}
 	var loadIcons = options.loadIcons;
 	if (typeof loadIcons === "undefined") loadIcons = true;
 	
@@ -227,12 +230,27 @@ var RevealToolbar = window.RevealToolbar || (function(){
 		if (document.currentScript) {
 			path = document.currentScript.src.slice(0, -10);
 		} else {
-			var sel = document.querySelector('script[src$="/toolbar.js"]')
+			var sel = document.querySelector('script[src$="toolbar.js"]')
 			if (sel) {
 				path = sel.src.slice(0, -10);
 			}
 		}
 		return path;
+	}
+
+	// polyfill
+	if (!String.prototype.startsWith) {
+		String.prototype.startsWith = function(searchString, position){
+			return this.substr(position || 0, searchString.length) === searchString;
+		};
+	}
+	if (!String.prototype.endsWith) {
+		String.prototype.endsWith = function(search, this_len) {
+			if (this_len === undefined || this_len > this.length) {
+				this_len = this.length;
+			}
+			return this.substring(this_len - search.length, this_len) === search;
+		};
 	}
 
 	/**
