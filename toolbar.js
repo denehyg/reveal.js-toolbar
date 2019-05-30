@@ -89,8 +89,8 @@ var RevealToolbar = window.RevealToolbar || (function(){
 			}			
 
 			if (showNotes && !Reveal.isSpeakerNotes()) {
-				// createToolbarButton('fa-list-alt', function() { if (RevealNotes) { RevealNotes.open() } });
-				createToolbarButton('fa-list-alt', function() { Reveal.triggerKey(83) });
+				createToolbarButton('fa-list-alt', function() { if (RevealNotes) { RevealNotes.open() } });
+				// createToolbarButton('fa-list-alt', function() { Reveal.triggerKey(83) });
 			}
 
 			if (showFullscreen) {
