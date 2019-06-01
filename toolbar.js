@@ -16,6 +16,16 @@
 var RevealToolbar =
   window.RevealToolbar ||
   (function() {
+    var ieVersion = (function() {
+      var browser = /(msie) ([\w.]+)/.exec(
+        window.navigator.userAgent.toLowerCase()
+      );
+      if (browser && browser[1] === 'msie') {
+        return parseFloat(browser[2]);
+      }
+      return null;
+    })();
+
     var config = Reveal.getConfig();
     var options = config.toolbar || {};
     options.path = options.path || scriptPath() || 'plugin/toolbar/';
@@ -56,7 +66,10 @@ var RevealToolbar =
 
     function loadPlugin() {
       // does not support IE8 or below
-      if (!head.browser.ie || head.browser.version >= 9) {
+      var initialise = !ieVersion || ieVersion >= 9;
+
+      // does not support IE8 or below
+      if (initialise) {
         function option(opt, def) {
           if (typeof opt === 'undefined') return def;
           return opt;
