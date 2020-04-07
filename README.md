@@ -94,16 +94,16 @@ Reveal.initialize({
 		// If true, the reveal.js-menu will be moved into the toolbar.
 		// Set to false to leave the menu on its own.
 		captureMenu: true,
-        
-        // add some custom buttons
-        customButtons: [
-            {
-                icon: 'fa-play',
-                callback: function() {
-                    console.log('customButton clicked.')
-                }
-            }
-        ],
+		
+		// add some custom buttons
+		customButtons: [
+			{
+				icon: 'fa-play',
+				callback: function() {
+					alert('customButton clicked.')
+				}
+			}
+		],
 
 		// If true, the playback control will be moved into the toolbar.
 		// This is only relevant if the presentation is configured to autoSlide.
