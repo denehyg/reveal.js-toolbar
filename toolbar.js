@@ -137,7 +137,7 @@ var RevealToolbar =
 
         if (showNotes && !Reveal.isSpeakerNotes()) {
           createToolbarButton('fa-list-alt', function() {
-            if (RevealNotes) {
+            if (window.RevealNotes) {
               RevealNotes.open();
             }
           });
