@@ -137,7 +137,7 @@ var RevealToolbar =
 
         if (showNotes && !Reveal.isSpeakerNotes()) {
           createToolbarButton('fa-list-alt', function() {
-            if (RevealNotes) {
+            if (window.RevealNotes) {
               RevealNotes.open();
             }
           });
@@ -186,7 +186,7 @@ var RevealToolbar =
         if (captureMenu) {
           // handle async loading of plugins
           var id_menu = setInterval(function() {
-            if (RevealMenu && RevealMenu.isInit()) {
+            if (window.RevealMenu && RevealMenu.isInit()) {
               dom.menu = document.querySelector('div.slide-menu-button');
               if (dom.menu) {
                 console.log('Moving menu button');
@@ -243,7 +243,7 @@ var RevealToolbar =
               JSON.stringify({
                 namespace: 'reveal',
                 eventName: type,
-                state: getState()
+                state: Reveal.getState()
               }),
               '*'
             );
