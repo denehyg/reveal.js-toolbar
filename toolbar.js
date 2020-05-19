@@ -243,7 +243,7 @@ var RevealToolbar =
               JSON.stringify({
                 namespace: 'reveal',
                 eventName: type,
-                state: getState()
+                state: Reveal.getState()
               }),
               '*'
             );
