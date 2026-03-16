@@ -82,6 +82,7 @@ var RevealToolbar =
         var showFullscreen = option(options.fullscreen, false);
         var showOverview = option(options.overview, false);
         var showPause = option(options.pause, false);
+        var customButtons = option(options.customButtons, []);
         var showNotes = option(options.notes, false);
         var showHelp = option(options.help, false);
         var captureMenu = option(options.captureMenu, true);
@@ -180,6 +181,12 @@ var RevealToolbar =
             var icon = dom.pauseButton.querySelector('i');
             icon.classList.remove('fa-eye');
             icon.classList.add('fa-eye-slash');
+          });
+        }
+
+        if (customButtons) {
+          customButtons.forEach(function(element){
+            createToolbarButton(element.icon, element.callback)
           });
         }
 
