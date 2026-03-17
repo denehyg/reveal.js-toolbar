@@ -1,6 +1,7 @@
 .reveal .reveal-toolbar {
     position: absolute;
     left: 30px;
+    z-index: 100;
 }
 
 .reveal .reveal-toolbar.reveal-toolbar-bottom {
